@@ -1,0 +1,1484 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>Informasi | BNN Kota Mojokerto</title>
+
+<style>
+
+/* =====================================================
+   RESET
+===================================================== */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =====================================================
+   BODY
+===================================================== */
+
+body {
+
+    font-family: Arial, Helvetica, sans-serif;
+
+    min-height: 100vh;
+
+    color: white;
+
+    overflow-x: hidden;
+
+    background:
+        radial-gradient(
+            circle at 20% 20%,
+            rgba(0, 220, 255, 0.35),
+            transparent 30%
+        ),
+        radial-gradient(
+            circle at 80% 80%,
+            rgba(0, 100, 255, 0.35),
+            transparent 35%
+        ),
+        linear-gradient(
+            135deg,
+            #001b3d,
+            #003b73,
+            #006bb6,
+            #002b5c
+        );
+
+    background-size: 200% 200%;
+
+    animation: backgroundMove 12s ease-in-out infinite;
+
+    position: relative;
+
+}
+
+
+/* =====================================================
+   BACKGROUND BERGERAK
+===================================================== */
+
+@keyframes backgroundMove {
+
+    0% {
+        background-position: 0% 50%;
+    }
+
+    50% {
+        background-position: 100% 50%;
+    }
+
+    100% {
+        background-position: 0% 50%;
+    }
+
+}
+
+
+/* =====================================================
+   LOGO BNN BESAR DI TENGAH
+===================================================== */
+
+.floating-logo {
+
+    position: fixed;
+
+    width: 650px;
+    height: 650px;
+
+    object-fit: contain;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    opacity: 0.11;
+
+    z-index: 0;
+
+    pointer-events: none;
+
+    filter:
+        drop-shadow(
+            0 0 30px
+            rgba(0, 210, 255, 0.8)
+        )
+        drop-shadow(
+            0 0 80px
+            rgba(0, 120, 255, 0.6)
+        );
+
+    animation:
+        logoFloating 10s ease-in-out infinite,
+        logoGlow 4s ease-in-out infinite alternate;
+
+}
+
+
+/* =====================================================
+   GERAK LOGO BESAR
+===================================================== */
+
+@keyframes logoFloating {
+
+    0% {
+
+        transform:
+            translate(-50%, -50%)
+            translate(0px, 0px)
+            rotate(-2deg)
+            scale(1);
+
+    }
+
+    20% {
+
+        transform:
+            translate(-50%, -50%)
+            translate(80px, -40px)
+            rotate(3deg)
+            scale(1.05);
+
+    }
+
+    40% {
+
+        transform:
+            translate(-50%, -50%)
+            translate(40px, 70px)
+            rotate(-3deg)
+            scale(1.10);
+
+    }
+
+    60% {
+
+        transform:
+            translate(-50%, -50%)
+            translate(-80px, 30px)
+            rotate(2deg)
+            scale(1.05);
+
+    }
+
+    80% {
+
+        transform:
+            translate(-50%, -50%)
+            translate(-40px, -70px)
+            rotate(-2deg)
+            scale(1.08);
+
+    }
+
+    100% {
+
+        transform:
+            translate(-50%, -50%)
+            translate(0px, 0px)
+            rotate(-2deg)
+            scale(1);
+
+    }
+
+}
+
+
+/* =====================================================
+   GLOW LOGO BESAR
+===================================================== */
+
+@keyframes logoGlow {
+
+    0% {
+
+        opacity: 0.07;
+
+        filter:
+            drop-shadow(
+                0 0 20px
+                rgba(0, 200, 255, 0.4)
+            );
+
+    }
+
+    100% {
+
+        opacity: 0.15;
+
+        filter:
+            drop-shadow(
+                0 0 45px
+                rgba(0, 220, 255, 0.9)
+            )
+            drop-shadow(
+                0 0 100px
+                rgba(0, 130, 255, 0.8)
+            );
+
+    }
+
+}
+
+
+/* =====================================================
+   CONTAINER LOGO KECIL
+===================================================== */
+
+.small-logos {
+
+    position: fixed;
+
+    inset: 0;
+
+    width: 100%;
+    height: 100%;
+
+    overflow: hidden;
+
+    z-index: 1;
+
+    pointer-events: none;
+
+}
+
+
+/* =====================================================
+   LOGO KECIL
+===================================================== */
+
+.small-logo {
+
+    position: absolute;
+
+    width: 65px;
+    height: 65px;
+
+    object-fit: contain;
+
+    opacity: 0.30;
+
+    filter:
+        drop-shadow(
+            0 0 10px
+            rgba(0, 220, 255, 0.9)
+        )
+        drop-shadow(
+            0 0 20px
+            rgba(0, 150, 255, 0.7)
+        );
+
+    animation:
+        smallFloat
+        var(--duration)
+        ease-in-out
+        infinite;
+
+}
+
+
+/* =====================================================
+   POSISI LOGO KECIL
+===================================================== */
+
+.logo1 {
+
+    left: 5%;
+    top: 15%;
+
+    --duration: 7s;
+
+}
+
+
+.logo2 {
+
+    left: 18%;
+    top: 65%;
+
+    --duration: 9s;
+
+}
+
+
+.logo3 {
+
+    left: 30%;
+    top: 12%;
+
+    --duration: 8s;
+
+}
+
+
+.logo4 {
+
+    left: 43%;
+    top: 78%;
+
+    --duration: 10s;
+
+}
+
+
+.logo5 {
+
+    left: 55%;
+    top: 18%;
+
+    --duration: 7s;
+
+}
+
+
+.logo6 {
+
+    left: 68%;
+    top: 68%;
+
+    --duration: 9s;
+
+}
+
+
+.logo7 {
+
+    left: 80%;
+    top: 12%;
+
+    --duration: 8s;
+
+}
+
+
+.logo8 {
+
+    left: 91%;
+    top: 55%;
+
+    --duration: 10s;
+
+}
+
+
+.logo9 {
+
+    left: 8%;
+    top: 85%;
+
+    --duration: 11s;
+
+}
+
+
+.logo10 {
+
+    left: 25%;
+    top: 40%;
+
+    --duration: 8s;
+
+}
+
+
+.logo11 {
+
+    left: 72%;
+    top: 40%;
+
+    --duration: 9s;
+
+}
+
+
+.logo12 {
+
+    left: 87%;
+    top: 85%;
+
+    --duration: 7s;
+
+}
+
+
+/* =====================================================
+   ANIMASI LOGO KECIL
+===================================================== */
+
+@keyframes smallFloat {
+
+    0% {
+
+        transform:
+            translate(0px, 0px)
+            rotate(0deg)
+            scale(1);
+
+    }
+
+    20% {
+
+        transform:
+            translate(35px, -25px)
+            rotate(8deg)
+            scale(1.08);
+
+    }
+
+    40% {
+
+        transform:
+            translate(-25px, 35px)
+            rotate(-8deg)
+            scale(0.92);
+
+    }
+
+    60% {
+
+        transform:
+            translate(45px, 45px)
+            rotate(10deg)
+            scale(1.12);
+
+    }
+
+    80% {
+
+        transform:
+            translate(-35px, -35px)
+            rotate(-6deg)
+            scale(0.95);
+
+    }
+
+    100% {
+
+        transform:
+            translate(0px, 0px)
+            rotate(0deg)
+            scale(1);
+
+    }
+
+}
+
+
+/* =====================================================
+   LINGKARAN TEKNOLOGI
+===================================================== */
+
+.tech-ring {
+
+    position: fixed;
+
+    width: 800px;
+    height: 800px;
+
+    left: 50%;
+    top: 50%;
+
+    transform:
+        translate(-50%, -50%);
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(0, 220, 255, 0.18);
+
+    box-shadow:
+        0 0 30px
+        rgba(0, 200, 255, 0.15),
+
+        inset 0 0 30px
+        rgba(0, 200, 255, 0.08);
+
+    z-index: 1;
+
+    pointer-events: none;
+
+    animation:
+        ringRotate
+        25s
+        linear
+        infinite;
+
+}
+
+
+.tech-ring::before {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 45px;
+
+    border-radius: 50%;
+
+    border:
+        1px dashed
+        rgba(255,255,255,0.16);
+
+    animation:
+        ringRotateReverse
+        18s
+        linear
+        infinite;
+
+}
+
+
+.tech-ring::after {
+
+    content: "";
+
+    position: absolute;
+
+    inset: 100px;
+
+    border-radius: 50%;
+
+    border:
+        1px solid
+        rgba(0,220,255,0.12);
+
+}
+
+
+@keyframes ringRotate {
+
+    from {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(0deg);
+
+    }
+
+    to {
+
+        transform:
+            translate(-50%, -50%)
+            rotate(360deg);
+
+    }
+
+}
+
+
+@keyframes ringRotateReverse {
+
+    from {
+
+        transform:
+            rotate(0deg);
+
+    }
+
+    to {
+
+        transform:
+            rotate(-360deg);
+
+    }
+
+}
+
+
+/* =====================================================
+   SCAN LINE
+===================================================== */
+
+.scan-line {
+
+    position: fixed;
+
+    left: 0;
+    top: 0;
+
+    width: 100%;
+
+    height: 2px;
+
+    background:
+        linear-gradient(
+            90deg,
+            transparent,
+            rgba(0,220,255,0.8),
+            white,
+            rgba(0,220,255,0.8),
+            transparent
+        );
+
+    box-shadow:
+        0 0 15px
+        rgba(0,220,255,0.8),
+
+        0 0 30px
+        rgba(0,220,255,0.5);
+
+    opacity: 0.35;
+
+    z-index: 2;
+
+    pointer-events: none;
+
+    animation:
+        scan 8s linear infinite;
+
+}
+
+
+@keyframes scan {
+
+    0% {
+        top: -5%;
+    }
+
+    50% {
+        top: 100%;
+    }
+
+    100% {
+        top: -5%;
+    }
+
+}
+
+
+/* =====================================================
+   CONTAINER UTAMA
+===================================================== */
+
+.container {
+
+    position: relative;
+
+    z-index: 10;
+
+    width: 100%;
+
+    min-height: 100vh;
+
+    padding:
+        40px 25px;
+
+}
+
+
+/* =====================================================
+   HEADER
+===================================================== */
+
+.header {
+
+    text-align: center;
+
+    margin-bottom: 35px;
+
+    position: relative;
+
+    z-index: 20;
+
+}
+
+
+/* =====================================================
+   LOGO DEPAN
+===================================================== */
+
+.header-logo {
+
+    width: 150px;
+    height: 150px;
+
+    object-fit: contain;
+
+    padding: 6px;
+
+    border-radius: 50%;
+
+    margin-bottom: 15px;
+
+    filter:
+        drop-shadow(
+            0 0 15px
+            rgba(0,220,255,0.5)
+        );
+
+    animation:
+        headerLogoFloat
+        4s
+        ease-in-out
+        infinite;
+
+}
+
+
+@keyframes headerLogoFloat {
+
+    0%,
+    100% {
+
+        transform:
+            translateY(0);
+
+    }
+
+    50% {
+
+        transform:
+            translateY(-8px);
+
+    }
+
+}
+
+
+/* =====================================================
+   JUDUL
+===================================================== */
+
+.header h1 {
+
+    font-size: 32px;
+
+    font-weight: 700;
+
+    margin-bottom: 8px;
+
+    text-shadow:
+        0 0 10px
+        rgba(255,255,255,0.35);
+
+}
+
+
+.header > p {
+
+    font-size: 16px;
+
+    opacity: 0.95;
+
+    margin-bottom: 20px;
+
+}
+
+
+/* =====================================================
+   AKSI BNN
+===================================================== */
+
+.aksi-header {
+
+    width: 100%;
+
+    max-width: 850px;
+
+    margin: 0 auto;
+
+    padding:
+        20px 25px;
+
+    background:
+        rgba(255,255,255,0.12);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.35);
+
+    border-radius: 22px;
+
+    box-shadow:
+        0 10px 30px
+        rgba(0,0,0,0.18);
+
+    backdrop-filter:
+        blur(12px);
+
+    position: relative;
+
+    overflow: hidden;
+
+}
+
+
+.aksi-header h2 {
+
+    font-size: 22px;
+
+    margin-bottom: 8px;
+
+}
+
+
+.aksi-header p {
+
+    font-size: 14px;
+
+    line-height: 1.6;
+
+}
+
+
+/* =====================================================
+   MENU
+===================================================== */
+
+.menu-box {
+
+    width: 100%;
+
+    max-width: 1100px;
+
+    margin: 0 auto;
+
+    padding:
+        35px 25px;
+
+    background:
+        rgba(255,255,255,0.10);
+
+    border:
+        1px solid
+        rgba(255,255,255,0.30);
+
+    border-radius: 25px;
+
+    box-shadow:
+        0 10px 35px
+        rgba(0,0,0,0.20);
+
+    backdrop-filter:
+        blur(14px);
+
+    display: grid;
+
+    grid-template-columns:
+        repeat(6, 1fr);
+
+    column-gap: 15px;
+
+    row-gap: 35px;
+
+    justify-items: center;
+
+    position: relative;
+
+    z-index: 20;
+
+}
+
+
+/* =====================================================
+   MENU ITEM
+===================================================== */
+
+.menu-item {
+
+    width: 135px;
+
+    text-decoration: none;
+
+    color: white;
+
+    text-align: center;
+
+    display: flex;
+
+    flex-direction: column;
+
+    align-items: center;
+
+    transition:
+        0.35s ease;
+
+}
+
+
+/* =====================================================
+   CIRCLE
+===================================================== */
+
+.circle {
+
+    width: 90px;
+
+    height: 90px;
+
+    border-radius: 50%;
+
+    background:
+        rgba(255,255,255,0.93);
+
+    color:
+        #0074cc;
+
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+
+    font-size: 32px;
+
+    border:
+        4px solid
+        rgba(255,255,255,0.75);
+
+    box-shadow:
+        0 8px 20px
+        rgba(0,0,0,0.20);
+
+    transition:
+        0.35s ease;
+
+}
+
+
+.menu-item span {
+
+    display: block;
+
+    width: 135px;
+
+    margin-top: 10px;
+
+    font-size: 12px;
+
+    font-weight: 600;
+
+    line-height: 1.35;
+
+    text-align: center;
+
+}
+
+
+.menu-item:hover {
+
+    transform:
+        translateY(-9px)
+        scale(1.03);
+
+}
+
+
+.menu-item:hover .circle {
+
+    background:
+        #0066cc;
+
+    color: white;
+
+    border-color: white;
+
+    transform:
+        scale(1.10)
+        rotate(5deg);
+
+    box-shadow:
+        0 10px 30px
+        rgba(0,0,0,0.30),
+
+        0 0 30px
+        rgba(0,210,255,0.65);
+
+}
+
+
+/* =====================================================
+   FOOTER
+===================================================== */
+
+footer {
+
+    text-align: center;
+
+    margin-top: 30px;
+
+    font-size: 13px;
+
+    opacity: 0.8;
+
+    position: relative;
+
+    z-index: 20;
+
+}
+
+
+/* =====================================================
+   TABLET
+===================================================== */
+
+@media (max-width: 950px) {
+
+    .menu-box {
+
+        grid-template-columns:
+            repeat(4, 1fr);
+
+    }
+
+    .floating-logo {
+
+        width: 550px;
+        height: 550px;
+
+    }
+
+    .small-logo {
+
+        width: 55px;
+        height: 55px;
+
+    }
+
+}
+
+
+/* =====================================================
+   HP
+===================================================== */
+
+@media (max-width: 650px) {
+
+    .container {
+
+        padding:
+            30px 15px;
+
+    }
+
+    .header h1 {
+
+        font-size: 25px;
+
+    }
+
+    .header > p {
+
+        font-size: 14px;
+
+    }
+
+    .aksi-header {
+
+        padding:
+            16px 15px;
+
+    }
+
+    .menu-box {
+
+        grid-template-columns:
+            repeat(3, 1fr);
+
+        padding:
+            25px 10px;
+
+        column-gap: 5px;
+
+        row-gap: 30px;
+
+    }
+
+    .menu-item {
+
+        width: 95px;
+
+    }
+
+    .circle {
+
+        width: 75px;
+        height: 75px;
+
+        font-size: 25px;
+
+    }
+
+    .menu-item span {
+
+        width: 95px;
+
+        font-size: 10px;
+
+    }
+
+    .floating-logo {
+
+        width: 400px;
+        height: 400px;
+
+        opacity: 0.08;
+
+    }
+
+    .tech-ring {
+
+        width: 500px;
+        height: 500px;
+
+    }
+
+    .small-logo {
+
+        width: 45px;
+        height: 45px;
+
+        opacity: 0.25;
+
+    }
+
+}
+
+
+/* =====================================================
+   HP KECIL
+===================================================== */
+
+@media (max-width: 400px) {
+
+    .menu-box {
+
+        grid-template-columns:
+            repeat(2, 1fr);
+
+    }
+
+    .menu-item {
+
+        width: 120px;
+
+    }
+
+    .menu-item span {
+
+        width: 120px;
+
+    }
+
+    .floating-logo {
+
+        width: 330px;
+        height: 330px;
+
+    }
+
+    .small-logo {
+
+        width: 38px;
+        height: 38px;
+
+    }
+
+}
+
+</style>
+
+</head>
+
+
+<body>
+
+
+<!-- =====================================================
+     LOGO BESAR DI TENGAH
+===================================================== -->
+
+<img
+    src="LOGO BNN.png"
+    class="floating-logo"
+    alt="Logo BNN Background"
+>
+
+
+<!-- =====================================================
+     LOGO-LOGO KECIL MELAYANG
+===================================================== -->
+
+<div class="small-logos">
+
+    <img src="LOGO BNN.png" class="small-logo logo1">
+    <img src="LOGO BNN.png" class="small-logo logo2">
+    <img src="LOGO BNN.png" class="small-logo logo3">
+    <img src="LOGO BNN.png" class="small-logo logo4">
+    <img src="LOGO BNN.png" class="small-logo logo5">
+    <img src="LOGO BNN.png" class="small-logo logo6">
+    <img src="LOGO BNN.png" class="small-logo logo7">
+    <img src="LOGO BNN.png" class="small-logo logo8">
+    <img src="LOGO BNN.png" class="small-logo logo9">
+    <img src="LOGO BNN.png" class="small-logo logo10">
+    <img src="LOGO BNN.png" class="small-logo logo11">
+    <img src="LOGO BNN.png" class="small-logo logo12">
+
+</div>
+
+
+<!-- =====================================================
+     LINGKARAN TEKNOLOGI
+===================================================== -->
+
+<div class="tech-ring"></div>
+
+
+<!-- =====================================================
+     SCAN LINE
+===================================================== -->
+
+<div class="scan-line"></div>
+
+
+<!-- =====================================================
+     WEBSITE UTAMA
+===================================================== -->
+
+<div class="container">
+
+
+<header class="header">
+
+
+    <!-- LOGO DEPAN -->
+
+    <img
+        src="LOGO BNN.png"
+        class="header-logo"
+        alt="Logo BNN"
+    >
+
+
+    <h1>
+        Informasi BNN Kota Mojokerto
+    </h1>
+
+
+    <p>
+        Akses informasi dan layanan BNN Kota Mojokerto
+    </p>
+
+
+    <div class="aksi-header">
+
+        <h2>
+            Aksi BNN Kota Mojokerto
+        </h2>
+
+        <p>
+            Bersama BNN Kota Mojokerto, wujudkan lingkungan
+            yang sehat, aman, dan bersih dari penyalahgunaan narkoba.
+        </p>
+
+    </div>
+
+
+</header>
+
+
+<!-- =====================================================
+     MENU 12
+===================================================== -->
+
+<section class="menu-box">
+
+
+<a
+href="https://drive.google.com/drive/u/0/folders/1FixakNd4jTsoFBAx1omum9GgxeAqcSuf"
+class="menu-item"
+target="_blank">
+
+<div class="circle">⚖</div>
+
+<span>
+DATA PERATURAN
+</span>
+
+</a>
+
+
+<a
+href="https://drive.google.com/drive/u/3/folders/1APFHUGuCWzxFvReKSZBpl-1tL35dI0Cq"
+class="menu-item"
+target="_blank">
+
+<div class="circle">✓</div>
+
+<span>
+SKP TW 2 TAHUN 2026 KOTA MOJOKERTO
+</span>
+
+</a>
+
+
+<a
+href="https://docs.google.com/spreadsheets/d/1ZhIsylKXpk1dHg6JUpEs9iU2_74ejWTu/edit?usp=sharing&ouid=111584853282665734754&rtpof=true&sd=true"
+class="menu-item"
+target="_blank">
+
+<div class="circle">👥</div>
+
+<span>
+DATA KEPEGAWAIAN
+</span>
+
+</a>
+
+
+<a
+href="https://drive.google.com/drive/u/0/folders/1MOSU8A5hB1adC4PoOqwERjS0-y6kMYUA"
+class="menu-item"
+target="_blank">
+
+<div class="circle">✓</div>
+
+<span>
+SKP PEGAWAI BNN KOTA MOJOKERTO
+</span>
+
+</a>
+
+
+<a
+href="https://docs.google.com/spreadsheets/d/15OCrJOBxWJUxS3vpUQRF03FFXyUkFtXH/edit?usp=sharing&ouid=111584853282665734754&rtpof=true&sd=true"
+class="menu-item"
+target="_blank">
+
+<div class="circle">✉</div>
+
+<span>
+AGENDA SURAT MASUK 2026
+</span>
+
+</a>
+
+
+<a
+href="https://docs.google.com/spreadsheets/d/1f9_2cRG3brnCMKOrYNQtbPLnVfdT9uMV/edit?usp=sharing&ouid=111584853282665734754&rtpof=true&sd=true"
+class="menu-item"
+target="_blank">
+
+<div class="circle">📅</div>
+
+<span>
+REKAP CUTI 2026
+</span>
+
+</a>
+
+
+<a
+href="https://docs.google.com/spreadsheets/d/1F1yE80POWF-Ky_wrRvwUH0hJ15N5bigto9B6torpOec/edit?usp=sharing"
+class="menu-item"
+target="_blank">
+
+<div class="circle">✈</div>
+
+<span>
+REKAP JALDIS DAN LAPORAN 2026
+</span>
+
+</a>
+
+
+<a
+href="https://docs.google.com/spreadsheets/d/140u5wNOdESRA1xXq79fJ4PKxFhdVT4sJ/edit?usp=sharing&ouid=111584853282665734754&rtpof=true&sd=true"
+class="menu-item"
+target="_blank">
+
+<div class="circle">📊</div>
+
+<span>
+REALISASI SUBBAG UMUM 2026
+</span>
+
+</a>
+
+
+<a
+href="https://docs.google.com/spreadsheets/d/1P6Y0wGSDnriQCFuPhrAws0dB_peluRGI/edit?usp=sharing&ouid=111584853282665734754&rtpof=true&sd=true"
+class="menu-item"
+target="_blank">
+
+<div class="circle">💰</div>
+
+<span>
+SPJ KEUANGAN 2026
+</span>
+
+</a>
+
+
+<a
+href="https://docs.google.com/spreadsheets/d/1oW-uWvRvizM64Gl0Pmf45BScNNDVotqO/edit?usp=sharing&ouid=111584853282665734754&rtpof=true&sd=true"
+class="menu-item"
+target="_blank">
+
+<div class="circle">☑</div>
+
+<span>
+DAFTAR SOP
+</span>
+
+</a>
+
+
+<a
+href="https://docs.google.com/spreadsheets/d/1MBzwyQij8SYzmgpdBF02NT7qxcAhDXqboUZZic4F8jI/edit?usp=sharing"
+class="menu-item"
+target="_blank">
+
+<div class="circle">🤝</div>
+
+<span>
+MoU DAN PKS
+</span>
+
+</a>
+
+
+<a
+href="https://bnnsipeka.my.canva.site/"
+class="menu-item"
+target="_blank">
+
+<div class="circle">💻</div>
+
+<span>
+SIPEKA
+</span>
+
+</a>
+
+
+</section>
+
+
+<footer>
+
+<p>
+© 2026 BNN Kota Mojokerto
+</p>
+
+</footer>
+
+
+</div>
+
+
+</body>
+
+</html>
